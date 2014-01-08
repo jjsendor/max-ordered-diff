@@ -6,15 +6,12 @@ Max_{i=1..n, j <= i} (A[i] - A[j])
 '''
 
 def max_diff(a):
-	max = 0
-	j = a[0]
+	d = 0
+	y = a[0]
 	for x in a[1:]:
-		diff = x - j
-		if diff > max:
-			max = diff # alternatively: max_d = max(max_d, diff)
-		elif diff < 0:
-			j = x # alternatively: j = min(j, x)
-	return max
+		d = max(d, x - y)
+		y = min(y, x)
+	return d
 
 # test output
 print(max_diff([2, 1, 9])) # 8
